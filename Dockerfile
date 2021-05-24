@@ -4,6 +4,7 @@ ARG OPENLDAP_PACKAGE_VERSION=2.4.45
 ARG RCLONE_PACKAGE_VERSION=v1.55.1
 
 ADD https://downloads.rclone.org/${RCLONE_PACKAGE_VERSION}/rclone-${RCLONE_PACKAGE_VERSION}-linux-amd64.zip /tmp/rclone.zip
+COPY rclone.conf /root/.config/rclone/rclone.conf
 
 RUN apt-get -y update && \
 apt-get install -y --no-install-recommends \

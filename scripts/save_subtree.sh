@@ -2,7 +2,11 @@
 
 subtree="$@"
 
-ldapsearch -Z -x \
+if [[ "${LDAP_STARTTLS}" == "true" ]]; then
+  tls_flag="-Z"
+fi
+
+ldapsearch ${tls_flag} -x \
 -H ${LDAP_HOST:-ldap://localhost:389} \
 -o ldif-wrap=${LDIF_WRAP:-76} \
 -w "${LDAP_ADMIN_PASSWORD}" \

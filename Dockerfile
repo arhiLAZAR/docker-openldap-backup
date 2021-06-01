@@ -7,6 +7,7 @@ ADD https://downloads.rclone.org/${RCLONE_PACKAGE_VERSION}/rclone-${RCLONE_PACKA
 COPY rclone.conf /root/.config/rclone/rclone.conf
 
 COPY scripts/save_subtree.sh /usr/local/bin/save_subtree
+COPY scripts/upload_backup.sh /usr/local/bin/upload_backup
 
 RUN apt-get -y update && \
 apt-get install -y --no-install-recommends \

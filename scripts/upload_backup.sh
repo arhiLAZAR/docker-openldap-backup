@@ -4,8 +4,8 @@ unixtime=$(date +%s)
 bucket=${RCLONE_S3_BUCKET_NAME:-ldapbackups}
 
 cd "${BACKUP_TMP_DIR:-/tmp}"
-tar -zvcf tree.ldif.tar.gz tree.ldif
+tar -zvcf backup.tar.gz *.ldif
 
 rclone mkdir s3:/${bucket}
-rclone copy tree.ldif.tar.gz s3:/${bucket}/${unixtime}
-rclone copy tree.ldif.tar.gz s3:/${bucket}/latest
+rclone copy backup.tar.gz s3:/${bucket}/${unixtime}
+rclone copy backup.tar.gz s3:/${bucket}/latest

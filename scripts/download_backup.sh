@@ -7,4 +7,4 @@ cd "${BACKUP_TMP_DIR:-/tmp}"
 
 rclone copy s3:/${bucket}/${backup_name} ./
 
-tar -zvxf tree.ldif.tar.gz
+tar -zvxf backup.tar.gz

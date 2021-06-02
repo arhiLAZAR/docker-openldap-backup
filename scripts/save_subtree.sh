@@ -17,7 +17,7 @@ if [[ "$subtree" =~ .*,cn=config$ ]]; then
   -o ldif-wrap=${LDIF_WRAP:-76} \
   -w "${LDAP_CONFIG_PASSWORD}" \
   -D "${LDAP_CONFIG_USER:-cn=admin,cn=config}" \
-  -b "${subtree}" "${attr}" \
+  -b "${subtree}" ${attr} \
   >> "${BACKUP_TMP_DIR:-/tmp}/config.ldif"
 else
   ldapsearch ${tls_flag} -x \
@@ -25,6 +25,6 @@ else
   -o ldif-wrap=${LDIF_WRAP:-76} \
   -w "${LDAP_ADMIN_PASSWORD}" \
   -D "${LDAP_ADMIN_USER}" \
-  -b "${subtree}" "${attr}"\
+  -b "${subtree}" ${attr}\
   >> "${BACKUP_TMP_DIR:-/tmp}/tree.ldif"
 fi

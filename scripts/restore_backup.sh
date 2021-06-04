@@ -2,9 +2,16 @@
 
 filename="${1}"
 user="${2:-admin}"
+target_server="${3:-master}"
 
 if [[ "${LDAP_STARTTLS}" == "true" ]]; then
   tls_flag="-Z"
+fi
+
+if [[ "${target_server}" == "slave" ]]; then
+  LDAP_HOST="${LDAP_SLAVE_HOST}"
+else
+  LDAP_HOST="${LDAP_MASTER_HOST}"
 fi
 
 if [[ "${user}" == "config" ]]; then

@@ -13,7 +13,7 @@ fi
 
 if [[ "$subtree" =~ .*,cn=config$ ]]; then
   ldapsearch ${tls_flag} -x \
-  -H ${LDAP_HOST:-ldap://localhost:389} \
+  -H ${LDAP_MASTER_HOST:-ldap://localhost:389} \
   -o ldif-wrap=${LDIF_WRAP:-76} \
   -w "${LDAP_CONFIG_PASSWORD}" \
   -D "${LDAP_CONFIG_USER:-cn=admin,cn=config}" \
@@ -21,7 +21,7 @@ if [[ "$subtree" =~ .*,cn=config$ ]]; then
   >> "${BACKUP_TMP_DIR:-/tmp}/config.ldif"
 else
   ldapsearch ${tls_flag} -x \
-  -H ${LDAP_HOST:-ldap://localhost:389} \
+  -H ${LDAP_MASTER_HOST:-ldap://localhost:389} \
   -o ldif-wrap=${LDIF_WRAP:-76} \
   -w "${LDAP_ADMIN_PASSWORD}" \
   -D "${LDAP_ADMIN_USER}" \

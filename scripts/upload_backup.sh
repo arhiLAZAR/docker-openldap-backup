@@ -1,7 +1,7 @@
 #!/bin/bash
 
 unixtime=$(date +%s)
-bucket=${RCLONE_S3_BUCKET_NAME:-ldapbackups}
+bucket=${RCLONE_S3_BUCKET_NAME:-openldap-backups}
 
 cd "${BACKUP_TMP_DIR:-/tmp}"
 tar -zvcf backup.tar.gz *.ldif

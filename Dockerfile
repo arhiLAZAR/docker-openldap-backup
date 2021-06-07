@@ -12,6 +12,9 @@ COPY scripts/save_subtree.sh /usr/local/bin/save_subtree
 COPY scripts/upload_backup.sh /usr/local/bin/upload_backup
 COPY scripts/download_backup.sh /usr/local/bin/download_backup
 COPY scripts/restore_backup.sh /usr/local/bin/restore_backup
+COPY scripts/check_replication.sh /usr/local/bin/check_replication
+COPY scripts/delete_helmrelease.sh /usr/local/bin/delete_helmrelease
+COPY scripts/configure_kubectl.sh /usr/local/bin/configure_kubectl
 
 RUN apt-get -y update && \
 apt-get install -y --no-install-recommends \
